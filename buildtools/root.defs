@@ -1,0 +1,2 @@
+include_defs('//buildtools/module.defs')
+include_defs('//buildtools/maven.defs')

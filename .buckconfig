@@ -1,0 +1,24 @@
+[buildfile]
+includes = //buildtools/root.defs
+
+[java]
+src_roots = java, resources, src
+source_level = 8
+target_level = 8
+
+[project]
+ide = intellij
+glob_handler = python
+allow_symlinks = forbid
+ignore = .git
+
+
+[cache]
+mode = dir
+dir = ~/.buckplay/buck-cache/locally-built-artifacts
+
+[log]
+compress_traces = true
+
+[maven_repositories]
+central = https://repo1.maven.org/maven2

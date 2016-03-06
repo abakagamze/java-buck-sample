@@ -1,0 +1,29 @@
+def module_config(
+        name,
+        deps = [],
+        test_deps = [],
+        srcs = None,
+        test_srcs = None,
+        visibility=[ 'PUBLIC' ] ):
+    srcs = glob(['src/main/java/**/*.java', 'src/java/resources/**/*.*']) if srcs == None else srcs
+    test_srcs = glob(['src/test/java/**/*.java', 'src/test/resources/**/*.*']) if test_srcs == None else test_srcs
+    java_library(
+        name = name,
+        srcs = srcs,
+        visibility=visibility,
+        deps=[] + deps
+    )
+    java_test(
+        name = name+'-tests',
+        srcs = test_srcs,
+        deps = [
+            ':'+name,
+            '//lib:junit'
+        ] + test_deps,
+    )
+    project_config(
+        src_target = ':' + name, #code on classpath
+        src_roots = [ 'src/main/java', 'src/main/resources' ],
+        test_target = ':' + name + '-tests', # test code on classpath
+        test_roots = ['src/test/java', 'src/test/resources'],
+    )
