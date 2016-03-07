@@ -13,11 +13,11 @@ public class Module1MainTest {
         Assert.assertTrue(true);
     }
 
-//    @Test
-//    public void shouldNotBeAbleToDependOnModule2() throws Exception {
-//     //This test will fail in IntelliJ but does not compile in BUCK
-//        Module2Main module2Main = new Module2Main(); //IntelliJ can view module 2 but there is no test depenency on it
-//        Assert.assertFalse(module2Main.toString().length() > 0);
-//
-//    }
+    @Test
+    public void shouldBeAbleToDependOnModule2() throws Exception {
+        // the module_config() macro automatically makes make java_test() deps always depend on java_library() deps
+        Module2Main module2Main = new Module2Main();
+        Assert.assertTrue(module2Main.toString().length() > 0);
+
+    }
 }
