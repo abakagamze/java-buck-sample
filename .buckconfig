@@ -22,3 +22,8 @@ compress_traces = true
 
 [maven_repositories]
 central = https://repo1.maven.org/maven2
+
+[alias]
+module1 = //module1:module1
+module2 = //module2:module2
+module3 = //module3:module3

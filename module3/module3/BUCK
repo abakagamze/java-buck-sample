@@ -1,0 +1,4 @@
+module_config(
+  name = 'module3',
+  test_deps = ['//lib:hamcrest-core']
+)

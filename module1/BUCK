@@ -1,5 +1,5 @@
 module_config(
   name = 'module1',
-  deps = [],
+  deps = ['//module2:module2'],
   test_deps = ['//lib:hamcrest-core'],
 )
